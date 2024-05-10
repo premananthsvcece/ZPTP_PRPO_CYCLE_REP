@@ -1,9 +1,12 @@
-jQuery.sap.declare("ZPTP_PRPO_CYCLE_REP.Component");
-sap.ui.getCore().loadLibrary("sap.ui.generic.app");
-jQuery.sap.require("sap.ui.generic.app.AppComponent");
+sap.ui.define(
+    ["sap/suite/ui/generic/template/lib/AppComponent"],
+    function (Component) {
+        "use strict";
 
-sap.ui.generic.app.AppComponent.extend("ZPTP_PRPO_CYCLE_REP.Component", {
-	metadata: {
-		"manifest": "json"
-	}
-});
+        return Component.extend("zptpprporep.Component", {
+            metadata: {
+                manifest: "json"
+            }
+        });
+    }
+);

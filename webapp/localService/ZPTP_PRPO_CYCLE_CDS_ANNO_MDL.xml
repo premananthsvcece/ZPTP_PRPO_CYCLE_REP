@@ -1,5 +1,5 @@
-<edmx:Edmx
-    xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
     <edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value">
         <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
     </edmx:Reference>
@@ -13,8 +13,7 @@
         <edmx:Include Namespace="ZPTP_PRPO_CYCLE_CDS_SRV" Alias="SAP"/>
     </edmx:Reference>
     <edmx:DataServices>
-        <Schema
-            xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zptp_prpo_cycle_cds_anno_mdl.v1">
+        <Schema Namespace="zptp_prpo_cycle_cds_anno_mdl.v1" xmlns="http://docs.oasis-open.org/odata/ns/edm">
             <Annotations Target="ZPTP_PRPO_CYCLE_CDS_SRV.zcds_prpo_cycle_histType">
                 <Annotation Term="UI.PresentationVariant">
                     <Record>

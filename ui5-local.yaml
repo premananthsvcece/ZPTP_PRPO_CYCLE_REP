@@ -1,44 +1,49 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
 specVersion: "3.1"
 metadata:
-  name: zptp_prpo_cycle_rep
+  name: zptpprporep
 type: application
 framework:
   name: SAPUI5
-  version: 1.79.0
+  version: 1.123.1
   libraries:
-    - name: sap.ui.core
     - name: sap.m
-    - name: sap.ui.comp
-    - name: sap.uxap
-    - name: sap.suite.ui.generic.template
-    - name: sap.ui.layout
+    - name: sap.ui.core
     - name: sap.ushell
-    - name: sap.collaboration
     - name: sap.f
-    - name: sap.ui.table
+    - name: sap.ui.comp
     - name: sap.ui.generic.app
-    - name: themelib_sap_belize
-    - name: themelib_sap_bluecrystal
-    - name: themelib_sap_fiori_3
+    - name: sap.suite.ui.generic.template
+    - name: themelib_sap_horizon
 server:
   customMiddleware:
-    - name: fiori-tools-proxy
-      afterMiddleware: compression
-      configuration:
-        ignoreCertError: false
-        backend:
-          - path: /sap
-            url: http://vhsmxsudap01.hec.us.sysmex.biz:8000
-            client: "030"
-            destination: SUD
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
         port: 35729
         path: webapp
         delay: 300
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+          - path: /sap
+            url: http://vhsmxsudap01.hec.us.sysmex.biz:8000
+            client: '030'
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZPTP_PRPO_CYCLE_CDS_SRV
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
+            generateMockData: true
+        annotations: []
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: ZPTP_PRPO_CYCLE_REP
-        ui5Theme: sap_fiori_3
+        component: zptpprporep
+        ui5Theme: sap_horizon
