@@ -1,0 +1,37 @@
+{
+    "resources": [
+        {
+            "name": "annotations/annotations.xml"
+        },
+        {
+            "name": "i18n/ListReport/zcds_prpo_cycle_hist/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "localService/mockserver.js"
+        },
+        {
+            "name": "localService/ZPTP_PRPO_CYCLE_CDS_ANNO_MDL.xml"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "neo-app.json"
+        }
+    ]
+}
