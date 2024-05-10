@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZPTP_PRPO_CYCLE_CDS_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="zcds_prpo_cycle_histType" sap:label="SAI PR Approval to PO Cycle Time Report" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="banfn"/>
+                    <PropertyRef Name="bnfpo"/>
+                    <PropertyRef Name="ebeln"/>
+                    <PropertyRef Name="ebelp"/>
+                </Key>
+                <Property Name="banfn" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Requisition" sap:quickinfo="Purchase Requisition Number"/>
+                <Property Name="bnfpo" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="NonNegative" sap:label="Purchase Requisition Number" sap:quickinfo="Item number of purchase requisition"/>
+                <Property Name="ebeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order" sap:quickinfo="Purchase order number"/>
+                <Property Name="ebelp" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="NonNegative" sap:label="Purchase Order Number" sap:quickinfo="Item Number of Purchasing Document"/>
+                <Property Name="prbsart" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purchase Requisition Type" sap:quickinfo="Purchase Requisition Document Type"/>
+                <Property Name="ekorg" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purchase Requisition Organization" sap:quickinfo="Purchasing organization"/>
+                <Property Name="ekgrp" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Purchase Requisition Purchasing Group" sap:quickinfo="Purchasing Group"/>
+                <Property Name="eknam" Type="Edm.String" MaxLength="18" sap:label="Description p. group" sap:quickinfo="Description of purchasing group"/>
+                <Property Name="prdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Purchaes Requisition Create Date" sap:quickinfo="Purchasing Document Creation Date"/>
+                <Property Name="prtime" Type="Edm.Time" Precision="0" sap:label="Purchase Requisition Create Time" sap:quickinfo="Purchasing Document Creation Time"/>
+                <Property Name="prernam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Purchase Requisition Created By" sap:quickinfo="Name of Person who Created the Object"/>
+                <Property Name="prername" Type="Edm.String" MaxLength="80" sap:label="Full Name" sap:quickinfo="Full Name of Person"/>
+                <Property Name="afnam" Type="Edm.String" MaxLength="12" sap:label="Purchase Requisition Requisitioner" sap:quickinfo="Name of requisitioner/requester"/>
+                <Property Name="prafname" Type="Edm.String" MaxLength="80" sap:label="Full Name" sap:quickinfo="Full Name of Person"/>
+                <Property Name="prwaers" Type="Edm.String" MaxLength="5" sap:label="Purchase Requisition Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="bedat" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Purchase Order Create Date" sap:quickinfo="Purchase Order Date"/>
+                <Property Name="pobsart" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purchase Order Type" sap:quickinfo="Purchasing Document Type"/>
+                <Property Name="lifnr" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchase Order Vendor ID" sap:quickinfo="Vendor's account number"/>
+                <Property Name="name1" Type="Edm.String" MaxLength="35" sap:label="Purchase Order Vendor Name" sap:quickinfo="Name 1"/>
+                <Property Name="land1" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Purchase Order Vendor Country" sap:quickinfo="Country Key"/>
+                <Property Name="bukrs" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Purchase Order Company Code" sap:quickinfo="Company Code"/>
+                <Property Name="mindk" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Vendor’s Minority Code" sap:quickinfo="Minority Indicator"/>
+                <Property Name="mtext" Type="Edm.String" MaxLength="30" sap:label="Vendor’s Minority Code Description" sap:quickinfo="Text"/>
+                <Property Name="powaers" Type="Edm.String" MaxLength="5" sap:label="Purchase Order Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="poernam" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Purchase Order Created By" sap:quickinfo="Name of Person who Created the Object"/>
+                <Property Name="potime" Type="Edm.Time" Precision="0" sap:label="Purchase Order Create Time" sap:quickinfo="Purchasing Document Creation Time"/>
+                <Property Name="loekz" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Deletion indicator" sap:quickinfo="Deletion indicator in purchasing document"/>
+                <Property Name="statu" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Processing status" sap:quickinfo="Processing status of purchase requisition"/>
+                <Property Name="bsmng" Type="Edm.Decimal" Precision="13" Scale="3" sap:label="Quantity ordered" sap:quickinfo="Quantity ordered against this purchase requisition"/>
+            </EntityType>
+            <EntityContainer Name="ZPTP_PRPO_CYCLE_CDS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zcds_prpo_cycle_hist" EntityType="ZPTP_PRPO_CYCLE_CDS_SRV.zcds_prpo_cycle_histType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZPTP_PRPO_CYCLE_CDS_SRV.ZPTP_PRPO_CYCLE_CDS_SRV_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://vhsmxsudap01.hec.us.sysmex.biz:8000/sap/opu/odata/sap/ZPTP_PRPO_CYCLE_CDS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://vhsmxsudap01.hec.us.sysmex.biz:8000/sap/opu/odata/sap/ZPTP_PRPO_CYCLE_CDS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
