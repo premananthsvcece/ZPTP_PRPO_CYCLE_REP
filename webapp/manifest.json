@@ -128,6 +128,7 @@
           "settings": {
             "condensedTableLayout": true,
             "smartVariantManagement": true,
+            "gridTable": true,
             "enableTableFilterInPageVariant": true,
             "filterSettings": {
               "dateSettings": {
