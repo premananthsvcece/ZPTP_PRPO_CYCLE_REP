@@ -20,10 +20,7 @@
         "uri": "/sap/opu/odata/sap/ZPTP_PRPO_CYCLE_CDS_SRV/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "ZPTP_PRPO_CYCLE_CDS_ANNO_MDL",
-            "annotation"
-          ],
+          "annotations": ["ZPTP_PRPO_CYCLE_CDS_ANNO_MDL", "annotation"],
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
         }
@@ -116,36 +113,32 @@
     "settings": {
       "forceGlobalRefresh": false,
       "objectPageHeaderType": "Dynamic",
-      "considerAnalyticalParameters": true,
       "showDraftToggle": false
     },
     "pages": {
       "ListReport|zcds_prpo_cycle_hist": {
         "entitySet": "zcds_prpo_cycle_hist",
+        "initialLoad": true,
         "component": {
           "name": "sap.suite.ui.generic.template.ListReport",
           "list": true,
           "settings": {
-            "condensedTableLayout": true,
-            "smartVariantManagement": true,
-            "gridTable": true,
-            "enableTableFilterInPageVariant": true,
             "filterSettings": {
               "dateSettings": {
                 "useDateRange": true
               }
             },
-            "tableSettings": {
-              "type": "GridTable"
-            }
-          }
-        },
-        "pages": {
-          "ObjectPage|zcds_prpo_cycle_hist": {
-            "entitySet": "zcds_prpo_cycle_hist",
-            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
-            "component": {
-              "name": "sap.suite.ui.generic.template.ObjectPage"
+            "condensedTableLayout": true,
+            "smartVariantManagement": true,
+            "gridTable": true,
+            "enableTableFilterInPageVariant": true,
+            "sortSettings": {
+              "sortOrder": [
+                {
+                  "property": "banfn",
+                  "descending": true
+                }
+              ]
             }
           }
         }
